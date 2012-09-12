@@ -41,6 +41,7 @@ staging:
     PHOTOCRACY_HOST: photocracy.org
 
 staging:
+    <<: *global
     HOST: <%= ENV['STAGING_ALLOURIDEAS_HOST'] %>
     API_HOST: <%= ENV['STAGING_API_HOST'] %>
     PAIRWISE_USERNAME: <%= ENV['PAIRWISE_USERNAME'] %>
