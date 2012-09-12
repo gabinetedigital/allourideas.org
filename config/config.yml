@@ -9,6 +9,12 @@ development:
     <<: *global
     HOST: localhost:3001 # domain:port of AOI server
     API_HOST: http://localhost:3000 # URL for pairwise API server
+    INFO_ALLOURIDEAS_EMAIL: info@allourideas.org
+    INFO_PHOTOCRACY_EMAIL: info@photocracy.org
+    SIGNUPS_ALLOURIDEAS_EMAIL: signups@allourideas.org
+    SIGNUPS_PHOTOCRACY_EMAIL: signups@photocracy.org
+    ERRORS_EMAIL: errors@allourideas.org
+
     PAIRWISE_USERNAME: pairwisetest@dkapadia.com
     PAIRWISE_PASSWORD: wheatthins
     PHOTOCRACY_USERNAME: photocracytest@dkapadia.com
