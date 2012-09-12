@@ -19,14 +19,14 @@ development:
     PAIRWISE_PASSWORD: wheatthins
     PHOTOCRACY_USERNAME: photocracytest@dkapadia.com
     PHOTOCRACY_PASSWORD: saltines
-    PHOTOCRACY_HOST: photocracy:3001 # domain:port of Photocracy (AOI) Server
-    IP_ADDR_HASH_SALT: 2039d9ds9ufsdioh2394230 #prevent dictionary attacks on stored ip address hashes
 
 production:
     <<: *global
     PHOTOCRACY_HOST: photocracy:3001
     IP_ADDR_HASH_SALT: 2039d9ds9ufsdioh2394230 #prevent dictionary attacks on stored ip address hashes
 
+    PHOTOCRACY_HOST: photocracy:3001
+    IP_ADDR_HASH_SALT: 2039d9ds9ufsdioh2394230 #prevent dictionary attacks on stored ip address hashes
     HOST: <%= ENV['ALLOURIDEAS_HOST'] %>
     API_HOST: <%= ENV['API_HOST'] %>
     PAIRWISE_USERNAME: <%= ENV['PAIRWISE_USERNAME'] %>
@@ -38,6 +38,9 @@ production:
 
 staging:
     <<: *global
+    PHOTOCRACY_HOST: photocracy.org
+
+staging:
     HOST: <%= ENV['STAGING_ALLOURIDEAS_HOST'] %>
     API_HOST: <%= ENV['STAGING_API_HOST'] %>
     PAIRWISE_USERNAME: <%= ENV['PAIRWISE_USERNAME'] %>
