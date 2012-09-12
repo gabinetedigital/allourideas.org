@@ -18,6 +18,9 @@ development:
 
 production:
     <<: *global
+    PHOTOCRACY_HOST: photocracy:3001
+    IP_ADDR_HASH_SALT: 2039d9ds9ufsdioh2394230 #prevent dictionary attacks on stored ip address hashes
+
     HOST: <%= ENV['ALLOURIDEAS_HOST'] %>
     API_HOST: <%= ENV['API_HOST'] %>
     PAIRWISE_USERNAME: <%= ENV['PAIRWISE_USERNAME'] %>
@@ -26,13 +29,6 @@ production:
 
     PHOTOCRACY_USERNAME: <%= ENV['PHOTOCRACY_USERNAME'] %>
     PHOTOCRACY_PASSWORD: <%= ENV['PHOTOCRACY_PASSWORD'] %>
-    PHOTOCRACY_HOST: photocracy.org
-
-    INFO_ALLOURIDEAS_EMAIL: <%= ENV['INFO_ALLOURIDEAS_EMAIL'] %>
-    INFO_PHOTOCRACY_EMAIL: <%= ENV['INFO_PHOTOCRACY_EMAIL'] %>
-    SIGNUPS_ALLOURIDEAS_EMAIL: <%= ENV['SIGNUPS_ALLOURIDEAS_EMAIL'] %>
-    SIGNUPS_PHOTOCRACY_EMAIL: <%= ENV['SIGNUPS_PHOTOCRACY_EMAIL'] %>
-    ERRORS_EMAIL: <%= ENV['ERRORS_EMAIL'] %>
 
 staging:
     <<: *global
