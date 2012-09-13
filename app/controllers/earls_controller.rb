@@ -6,9 +6,6 @@ class EarlsController < ApplicationController
   before_filter :dumb_cleartext_authentication, :except => :export_list
 
   def show
-
-    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>> SHOW >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-
     session[:welcome_msg] = @earl.welcome_message.blank? ? nil: @earl.welcome_message
     
     if @earl

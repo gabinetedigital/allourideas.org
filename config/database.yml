@@ -4,8 +4,7 @@
 development: &default
   adapter: mysql2
   user: root
-  database: allourideas
-  password: root
+  database: allourideas_development
   pool: 5
   timeout: 5000
 
