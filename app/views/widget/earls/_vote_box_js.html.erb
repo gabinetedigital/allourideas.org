@@ -111,10 +111,15 @@ var count = 0;
 /*  ADDING AN IDEA FUNCTIONALITY  */
 
   $('.add_idea_button.rounded').click(function() {
-    $('.vote-footer').hide();      
-    $('.add_container').hide();
-    $('#the_add_box').show();  
-
+    if(pode_adicionar_nova_idea){
+      $('.vote-footer').hide();      
+      $('.add_container').hide();
+      $('#the_add_box').show();  
+    }else{
+      if( parent.efetuar_login_na_votacao ){
+        parent.efetuar_login_na_votacao();
+      }
+    }
     return false;
   });
 

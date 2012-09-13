@@ -1,6 +1,8 @@
 /*  Resize the scrollbar container to fill the remaining space between the vote nav bar and the bottom status footer */
 /*  Resize the user_cd_reason text area semi-intelligently */
 
+//Isto é para poder chamar uma funcao dentro do iFrame, senao dá erro de segurança por cross-domain-call
+
  var viewportwidth;
  var viewportheight;
 

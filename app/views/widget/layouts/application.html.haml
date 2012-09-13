@@ -16,6 +16,29 @@
         // cleanup test cookie
         document.cookie = 'safariTest=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
       }
+      document.domain = "localhost";
+      var pode_adicionar_nova_idea = true;
+      var esconde_campo_votacao = function(){
+        //Close the add_new box
+        $('.vote-footer').show();
+        $('.add_container').show();
+        $('#the_add_box').hide();
+      }
+      var trata_botao_adicionar_ideia = function(pode){
+        pode_adicionar_nova_idea = pode;
+        if(!pode){
+          //$('.add_idea').hide();
+          esconde_campo_votacao();
+          $('.add_idea_button').click(function(event){
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+          });
+        }else{
+          // $('.add_idea').show();
+          $('.add_idea_button').click(function(){});
+        }
+      };
     %meta{:'http-equiv' => "content-type", :content => "text/html;charset=UTF-8"}
     = yield :meta
     %link{:rel => "shortcut icon", :href => "http://www.allourideas.org/favicon.ico"}

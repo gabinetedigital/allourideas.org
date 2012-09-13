@@ -9,6 +9,7 @@ class HomeController < ApplicationController
   end
 
   def index
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>> INDEX >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
   end
 
   def no_google_tracking

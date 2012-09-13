@@ -28,6 +28,8 @@ class QuestionsController < ApplicationController
   #   end
   # end
   def results
+
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>> QUESTION-RESULTS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
     @question = Question.find params[:id]
     @earl = @question.earl
 
@@ -264,6 +266,8 @@ class QuestionsController < ApplicationController
   end
 
   def admin
+
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>> ADMIN >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
     logger.info "@question = Question.find_by_name(#{params[:earl_id]}) ..."
     @question = Question.find params[:id]
     @earl = @question.earl
@@ -347,6 +351,9 @@ class QuestionsController < ApplicationController
 
 
   def voter_map
+
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>> VOTER_MAP >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+
     logger.info "@question = Question.find_by_name(#{params[:id]}) ..."
     earl = Earl.find_by_question_id(params[:id])
     data = Earl.voter_map(earl.id, params[:type])
@@ -1165,6 +1172,7 @@ class QuestionsController < ApplicationController
   end
 
   def about
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>> ABOUT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
     @question = Question.find params[:id]
     @earl = @question.earl
   end
