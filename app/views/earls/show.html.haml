@@ -103,6 +103,7 @@
 
 
 -content_for :view_javascript do
+  document.domain = "localhost";
   $('.rounded').corner('5px');
   = "var SHOW_AVERAGE_VOTES = '#{@ab_show_average}';"
   -unless session[:has_voted]

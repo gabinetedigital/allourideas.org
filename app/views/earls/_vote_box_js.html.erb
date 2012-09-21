@@ -1,5 +1,31 @@
   var loadedTime = new Date();
 
+  pode_adicionar_nova_idea = true;
+  default_text_box = 'Add your own idea here...'
+
+  if(parent._verifica_pode_adicionar_idea){
+    pode_adicionar_nova_idea = parent._verifica_pode_adicionar_idea();
+  };
+  trata_botao_adicionar_ideia = function(pode){
+    if(!pode){
+      default_text_box = 'You need to login to contribute';
+    }else{
+      default_text_box = 'Add your own idea here...';
+    };
+    $('#new_idea_field').attr('placeholder',default_text_box);
+    $('#default_text').val(default_text_box);
+    pode_adicionar_nova_idea = pode;
+  };
+
+  if(!parent._verifica_pode_adicionar_idea()){
+    default_text_box = 'You need to login to contribute';
+  }else{
+    default_text_box = 'Add your own idea here...';
+  };
+  $('#new_idea_field').attr('placeholder',default_text_box);
+  $('#default_text').val(default_text_box);
+
+
   handle_history_events = function(event){
     var left_side_text = $('#left_side_text').val();
     var right_side_text = $('#right_side_text').val();
@@ -40,49 +66,55 @@
   // handle submit on add new idea box
   $('#the_add_box').on('click', 'button', function(ev) {
     ev.preventDefault();
-    var button = $(ev.currentTarget);
-    button.addClass('disabled');
-    var box = $(ev.delegateTarget);
-    var new_idea = box.find('.new_idea_field').val();
-    var default_text = $('#default_text').val();
-    var question_id = button.data("question_id");
+    if(pode_adicionar_nova_idea){
+      var button = $(ev.currentTarget);
+      button.addClass('disabled');
+      var box = $(ev.delegateTarget);
+      var new_idea = box.find('.new_idea_field').val();
+      var default_text = $('#default_text').val();
+      var question_id = button.data("question_id");
 
-    $('.example_notice').hide();
+      $('.example_notice').hide();
 
-    // verify new idea is not blank, default or longer than <%= Const::MAX_ITEM_LENGTH %> characters
-    if (new_idea == 'Add your own idea here...' || new_idea == '' || new_idea == default_text) {
-      alert('<%=t('vote.submit_idea_default_error') %>');
-      return;
-    }
+      // verify new idea is not blank, default or longer than 140 characters
+      if (new_idea == 'Add your own idea here...' || new_idea == '' || new_idea == default_text) {
+        alert('<%=t('vote.submit_idea_default_error') %>');
+        return;
+      }
     if (new_idea.length > <%= Const::MAX_ITEM_LENGTH %>) {
       alert('<%=t('vote.submit_idea_too_long_error') %>');
       return;
     }
 
-    $('.tellmearea').html('');
-    var data = {authenticity_token : AUTH_TOKEN, new_idea: new_idea};
-    var url  = '/questions/' + question_id + '/add_idea.js?locale=<%= I18n.locale %>';
-    $.post(url, data, function(data){
-      button.removeClass('disabled');
-      // keypress is for counter
-      $('#new_idea_field').val('').show().keypress().blur();
+      $('.tellmearea').html('');
+      var data = {authenticity_token : AUTH_TOKEN, new_idea: new_idea};
+      var url  = '/questions/' + question_id + '/add_idea.js?locale=<%= I18n.locale %>';
+      $.post(url, data, function(data){
+        button.removeClass('disabled');
+        // keypress is for counter
+        $('#new_idea_field').val('').show().keypress().blur();
 
-      var responseText = '';
-      if (data['choice_status'] == 'active') {
-        responseText = '<%= t('vote.submit_idea_thankyou') %>';
-        current_item_count = $('#item_count').html();
-        $('#item_count').html(increment(current_item_count));
-      }
-      else {
-        responseText = '<%= t('vote.idea_sent_for_review') %>';
-      }
-      box.find('.idea-success p').html(responseText);
-      box.find('.idea-success').show();
-      setTimeout(function() {
-        box.find('.idea-success').hide(300);
-      }, 5 * 1000);
+        var responseText = '';
+        if (data['choice_status'] == 'active') {
+          responseText = '<%= t('vote.submit_idea_thankyou') %>';
+          current_item_count = $('#item_count').html();
+          $('#item_count').html(increment(current_item_count));
+        }
+        else {
+          responseText = '<%= t('vote.idea_sent_for_review') %>';
+        }
+        box.find('.idea-success p').html(responseText);
+        box.find('.idea-success').show();
+        setTimeout(function() {
+          box.find('.idea-success').hide(300);
+        }, 5 * 1000);
 
-    }, "json");
+      }, "json");
+    }else{
+      if(parent._chama_tela_login){
+        parent._chama_tela_login();
+      }
+    }
   });
 
 
