@@ -81,11 +81,7 @@
         alert('<%=t('vote.submit_idea_default_error') %>');
         return;
       }
-<<<<<<< HEAD
       if (new_idea.length > <%= Const::MAX_ITEM_LENGTH %>) {
-=======
-      if (new_idea.length > 140) {
->>>>>>> Integração com o GabineteDigital
         alert('<%=t('vote.submit_idea_too_long_error') %>');
         return;
       }
@@ -94,14 +90,11 @@
       var data = {authenticity_token : AUTH_TOKEN, new_idea: new_idea};
       var url  = '/questions/' + question_id + '/add_idea.js?locale=<%= I18n.locale %>';
       $.post(url, data, function(data){
-<<<<<<< HEAD
 
         //Chama o callback do GD para gravar a con tribuição
         if(parent._callback_contribution){
           parent._callback_contribution(data.choice_id,data.choice_data);
         }
-=======
->>>>>>> Integração com o GabineteDigital
         button.removeClass('disabled');
         // keypress is for counter
         $('#new_idea_field').val('').show().keypress().blur();
