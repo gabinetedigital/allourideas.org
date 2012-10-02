@@ -81,10 +81,10 @@
         alert('<%=t('vote.submit_idea_default_error') %>');
         return;
       }
-    if (new_idea.length > <%= Const::MAX_ITEM_LENGTH %>) {
-      alert('<%=t('vote.submit_idea_too_long_error') %>');
-      return;
-    }
+      if (new_idea.length > <%= Const::MAX_ITEM_LENGTH %>) {
+        alert('<%=t('vote.submit_idea_too_long_error') %>');
+        return;
+      }
 
       $('.tellmearea').html('');
       var data = {authenticity_token : AUTH_TOKEN, new_idea: new_idea};
