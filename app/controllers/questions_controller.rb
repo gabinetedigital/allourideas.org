@@ -987,6 +987,8 @@ class QuestionsController < ApplicationController
           render :text => {'thumbnail_url' => new_photo.image.url(:thumb), 'response_status' => 200}.to_json #text content_type is important with ajaxupload
         else
           render :json => {
+            :choice_id => @choice.id,
+            :choice_data => @choice.data,
             :choice_status => @choice.active? ? 'active' : 'inactive',
             :leveling_message => leveling_message,
             :message => "#{t('items.you_just_submitted')}: #{CGI::escapeHTML(new_idea_data)}"

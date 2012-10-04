@@ -1,16 +1,16 @@
   var loadedTime = new Date();
 
   pode_adicionar_nova_idea = true;
-  default_text_box = 'Add your own idea here...'
+  default_text_box = 'Inclua sua contribuição aqui...'
 
   if(parent._verifica_pode_adicionar_idea){
     pode_adicionar_nova_idea = parent._verifica_pode_adicionar_idea();
   };
   trata_botao_adicionar_ideia = function(pode){
     if(!pode){
-      default_text_box = 'You need to login to contribute';
+      default_text_box = 'Você precisa se logar para contribuir';
     }else{
-      default_text_box = 'Add your own idea here...';
+      default_text_box = 'Inclua sua contribuição aqui...';
     };
     $('#new_idea_field').attr('placeholder',default_text_box);
     $('#default_text').val(default_text_box);
@@ -18,9 +18,9 @@
   };
 
   if(!parent._verifica_pode_adicionar_idea()){
-    default_text_box = 'You need to login to contribute';
+    default_text_box = 'Você precisa se logar para contribuir';
   }else{
-    default_text_box = 'Add your own idea here...';
+    default_text_box = 'Inclua sua contribuição aqui...';
   };
   $('#new_idea_field').attr('placeholder',default_text_box);
   $('#default_text').val(default_text_box);
@@ -90,6 +90,11 @@
       var data = {authenticity_token : AUTH_TOKEN, new_idea: new_idea};
       var url  = '/questions/' + question_id + '/add_idea.js?locale=<%= I18n.locale %>';
       $.post(url, data, function(data){
+
+        //Chama o callback do GD para gravar a con tribuição
+        if(parent._callback_contribution){
+          parent._callback_contribution(data.choice_id,data.choice_data);
+        }
         button.removeClass('disabled');
         // keypress is for counter
         $('#new_idea_field').val('').show().keypress().blur();
