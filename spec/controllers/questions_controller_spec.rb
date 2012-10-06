@@ -84,16 +84,6 @@ describe QuestionsController do
 
   end
 
-  describe "GET add_idea" do
-    it "should require the user to be signed in" do
-      sign_out
-
-      post :add_idea, :id => :question_id
-
-      response.should redirect_to(new_session_url)
-    end
-  end
-
   describe "POST toggle" do
     it "should deactivate the earl, if the question was active" do
       consultation = Factory.build(:consultation_without_earls, :active => true)

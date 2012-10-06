@@ -10,6 +10,11 @@
   -unless signed_in?
     -f.fields_for :user do |u|
       %h2= t('consultations.user_details')
-      = render :partial => 'shared/new_user', :locals => { :form => u }
+      %p
+        = u.label :email
+        = u.text_field :email, :size => 30, :class => 'required email', :maxlength => Const::MAX_QUESTION_LENGTH
+      %p
+        = u.label :password
+        = u.password_field :password, :size => 20, :class => 'required'
 
   %p= f.submit
