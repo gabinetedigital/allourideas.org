@@ -44,7 +44,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :white_label_request?
   def white_label_request?
-    request.url.include?('whitelabel')
+    !request.url.include?('allourideas')
+    # request.url.include?('whitelabel')
   end
 
   def set_session_timestamp
