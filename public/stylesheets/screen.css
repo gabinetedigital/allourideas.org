@@ -468,7 +468,7 @@ table.tablesorter thead tr .headerSortDown {
   color: #fefefe; }
 
 .votebox.row {
-  height: 128px;
+  height: 190px;
   margin-bottom: 10px;
   overflow: hidden; }
 
@@ -478,14 +478,16 @@ table.tablesorter thead tr .headerSortDown {
 .vote-table {
   table-layout: fixed;
   width: 100%;
+  height: 190px;
   border-collapse: separate;
   *border-collapse: collapse;
   border-spacing: 0; }
 
 .table-cell-btn {
-  font-size: 20px;
+  font-size: 13pt;
   height: 126px;
   padding: 0 10px;
+  line-height: 26px;
   display: table-cell; }
 
 .progress-gray .bar {
