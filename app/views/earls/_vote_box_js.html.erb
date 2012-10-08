@@ -5,6 +5,9 @@
 
   if(parent._verifica_pode_adicionar_idea){
     pode_adicionar_nova_idea = parent._verifica_pode_adicionar_idea();
+  }else{
+    //Se nao tem o method no parent, teoricamente esth fora do GD.
+    $(".add-idea-row").remove();
   };
   trata_botao_adicionar_ideia = function(pode){
     if(!pode){
