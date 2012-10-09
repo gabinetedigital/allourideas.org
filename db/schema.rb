@@ -158,17 +158,18 @@ ActiveRecord::Schema.define(:version => 20121008205603) do
 
   create_table "users", :force => true do |t|
     t.string   "email"
-    t.string   "encrypted_password", :limit => 128
-    t.string   "salt",               :limit => 128
-    t.string   "confirmation_token", :limit => 128
-    t.string   "remember_token",     :limit => 128
-    t.boolean  "email_confirmed",                   :default => false, :null => false
+    t.string   "encrypted_password",   :limit => 128
+    t.string   "salt",                 :limit => 128
+    t.string   "confirmation_token",   :limit => 128
+    t.string   "remember_token",       :limit => 128
+    t.boolean  "email_confirmed",                     :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "default",                           :default => false
     t.boolean  "admin",                             :default => false
     t.integer  "facebook_id",        :limit => 8
     t.integer  "gabinetedigital_id"
+    t.string   "facebook_oauth_token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

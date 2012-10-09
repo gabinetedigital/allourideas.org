@@ -84,6 +84,27 @@ describe QuestionsController do
 
   end
 
+  describe "GET add_idea" do
+    it "should require the user to be signed in" do
+      sign_out
+
+      post :add_idea, :id => :question_id
+
+      response.should redirect_to(new_session_url)
+    end
+
+    it "should publish into the user's facebook" do
+      sign_in
+      earl = Factory(:earl)
+      Choice.any_instance.stubs(:create).returns(Choice.new)
+
+      message = I18n.t('facebook.idea_creation_sharing_message')
+      controller.should_receive(:publish_into_facebook).with(controller.current_user, message)
+
+      post :add_idea, :id => earl.question.id
+    end
+  end
+
   describe "POST toggle" do
     it "should deactivate the earl, if the question was active" do
       consultation = Factory.build(:consultation_without_earls, :active => true)
