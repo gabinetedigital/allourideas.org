@@ -9,6 +9,11 @@
     //Se nao tem o method no parent, teoricamente esth fora do GD.
     $(".add-idea-row").remove();
   };
+  _enviar_contrib_automatica = function(){
+    //Chamda do click no botão enviar de novas ideias para enviar automaticamente qdo um
+    //usuario estiver logando no ao mesmo tempo que contribuindo.
+    $(".add_idea").find('button').click();
+  }
   trata_botao_adicionar_ideia = function(pode){
     if(!pode){
       default_text_box = 'Você precisa de cadastro para enviar uma nova ideia.';
