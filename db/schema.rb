@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120912143740) do
+ActiveRecord::Schema.define(:version => 20121008205603) do
 
   create_table "alternatives", :force => true do |t|
     t.integer "experiment_id"
@@ -168,6 +168,7 @@ ActiveRecord::Schema.define(:version => 20120912143740) do
     t.boolean  "default",                           :default => false
     t.boolean  "admin",                             :default => false
     t.integer  "facebook_id",        :limit => 8
+    t.integer  "gabinetedigital_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

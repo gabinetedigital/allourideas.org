@@ -65,6 +65,8 @@ ActionController::Routing::Routes.draw do |map|
   map.example '/example', :controller => 'home', :action => 'example'
   map.connect '/signup', :controller => 'users', :action => 'new'
   map.root :controller => 'home', :action => 'index'
+  map.login_from_gd 'users/login_from_gabinete_digital', :controller => 'users', :action => 'login_from_gabinete_digital'
+
   #map.toggle_question '/questions/:id/toggle', :controller => 'questions'
   map.abingoTest "/abingo/:action/:id", :controller=> :abingo_dashboard
   map.googletracking "/no_google_tracking", :controller=> :home, :action => :no_google_tracking
