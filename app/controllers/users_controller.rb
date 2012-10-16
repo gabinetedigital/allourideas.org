@@ -1,9 +1,9 @@
 class UsersController < Clearance::UsersController
 	def login_from_gabinete_digital
-		logger.info "Validando login para o GD"
-		# logger.info params
-		logger.info "\n\nemail:"+params[:email]
-		logger.info "gd_id:"+params[:gd_id]
+		# logger.info "Validando login para o GD"
+		# # logger.info params
+		# logger.info "\n\nemail:"+params[:email]
+		# logger.info "gd_id:"+params[:gd_id]
 
 		user = User.find_or_create_by_email(params[:email])
 	    user.gabinetedigital_id = params[:gd_id]
@@ -12,7 +12,8 @@ class UsersController < Clearance::UsersController
 
 	    sign_in(user)
 
-	    user
+	    #cb - the callback url
+	    redirect_to(params[:cb]) and return
 	end
 
 end
