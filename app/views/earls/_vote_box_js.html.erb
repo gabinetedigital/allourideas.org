@@ -139,19 +139,22 @@
       }
     }
 
-    $('.votebox').on('click', '.btn-vote-idea', function(event){
+    $('.votebox').on('click', '.vote-table-div', function(event){
       event.preventDefault();
 
       var winningLink = $(event.currentTarget);
       // return early if disabled or not btn-primary
-      if (!winningLink.not('.disabled').is('.btn-primary')) {
+      if (!winningLink.not('.disabled').is('.vote-table-div')) {
         return;
       }
-      var losingLink  = winningLink.closest('.votebox').find('.btn-vote-idea').not(winningLink);
+      var losingLink  = winningLink.closest('.votebox').find('.vote-table-div').not(winningLink);
       var winningSide = winningLink.data('side').replace('side', '');
 
-      winningLink.removeClass('btn-primary').addClass('btn-success').addClass('disabled');
-      losingLink.removeClass('btn-primary').addClass('disabled');
+      $('.votebox').off('click');
+      winningLink.find('.btn').addClass('btn-success').addClass('disabled');
+      winningLink.find('.vote-table').addClass('escolhida');
+      losingLink.find('.btn').addClass('disabled');
+      losingLink.find('.vote-table').removeClass('essa');
 
       var currentTime = new Date();
       var time_viewed = currentTime - loadedTime
@@ -177,8 +180,8 @@
           'direction' : winningSide
         },
         error: function(request,error) {
-          winningLink.addClass('btn-primary').removeClass('btn-success').removeClass('disabled');
-          losingLink.addClass('btn-primary').removeClass('disabled');
+          winningLink.removeClass('btn-success').removeClass('disabled');
+          losingLink.removeClass('disabled');
           if (error == "timeout") {
             $('.tellmearea').html('<%= t('vote.vote_timeout_error')%>').effect("highlight", {color: '#ff0000'}, 1500);
           }

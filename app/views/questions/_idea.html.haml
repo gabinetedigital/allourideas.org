@@ -1,6 +1,8 @@
-.vote-table-div
-  %table.vote-table
+.vote-table-div{:id => side, :class => side, :"data-question_id" => @question.id, :"data-side" => side, :"data-choice_id" => choice_id, :"data-question_slug" => @question.slug, :"data-choice_url" => question_choice_path(@question.slug, choice_id)}
+  %table.vote-table.essa
     %tbody
       %tr
-        %td.table-cell-btn.btn.btn-primary.btn-vote-idea{:id => side, :class => side, :"data-question_id" => @question.id, :"data-side" => side, :"data-choice_id" => choice_id, :"data-question_slug" => @question.slug, :"data-choice_url" => question_choice_path(@question.slug, choice_id)}
-          = h(data)
+        %td.idea= h(data)
+      %tr
+        %td.choose
+          %a.btn.btn-info Escolher esta opção
