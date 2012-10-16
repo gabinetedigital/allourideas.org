@@ -468,20 +468,43 @@ table.tablesorter thead tr .headerSortDown {
   color: #fefefe; }
 
 .votebox.row {
-  height: 190px;
   margin-bottom: 10px;
   overflow: hidden; }
 
 .vote-table-div {
+
   overflow: hidden; }
 
 .vote-table {
   table-layout: fixed;
   width: 100%;
-  height: 190px;
+  height: 230px;
   border-collapse: separate;
   *border-collapse: collapse;
+  border: 2px solid #CCC;
+  padding: 10px;
+  text-align: center;
+  background-color: #FFF;
+  border-radius: 13px;
   border-spacing: 0; }
+
+.essa {
+    cursor: pointer;
+}
+
+.essa:hover, .escolhida {
+  background-color: #B3CC9A;
+  border: 2px solid  #B3CC9A;
+}
+
+.choose {
+    vertical-align: bottom;
+    text-align: center;
+}
+
+.idea {
+    font-size: 13pt;
+}
 
 .table-cell-btn {
   font-size: 13pt;
