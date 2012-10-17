@@ -50,21 +50,21 @@
   handle_history_events();
 
   $('#the_add_box .new_idea_field').jqEasyCounter({target: '#the_add_box .new_idea_counter'});
-  $('#the_add_box button').hide();
+  // $('#the_add_box button').hide();
 
   $('#the_add_box').on('focus', 'textarea', function(ev) {
-    $('#the_add_box button').show();
-    $('#the_add_box .new_idea_counter').show();
+    // $('#the_add_box button').show();
+    // $('#the_add_box .new_idea_counter').show();
   });
   $('#the_add_box').on('blur', 'textarea', function(ev) {
     if ($.trim($(ev.currentTarget).val()).length === 0) {
-      $('#the_add_box button').fadeOut();
+      // $('#the_add_box button').fadeOut();
     }
-    $('#the_add_box .new_idea_counter').fadeOut();
+    // $('#the_add_box .new_idea_counter').fadeOut();
   });
   // allow enter to add idea
   $('#the_add_box').on('keypress', 'textarea', function(ev) {
-    $('#the_add_box button').show();
+    // $('#the_add_box button').show();
     if (ev.which == 13) {
       ev.preventDefault();
       $('#the_add_box button').click();
