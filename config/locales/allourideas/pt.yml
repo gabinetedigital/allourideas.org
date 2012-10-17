@@ -55,7 +55,7 @@ pt:
     flag_as_inappropriate: Marcar como inapropriado 
     skip: pular
     over: melhor do que
-    submit: Submeter
+    submit: Enviar proposta
     submit_idea_default_error: Desculpe, ideias em branco não são permitidas.
     submit_idea_too_long_error: Desculpe, a ideia precisa ter menos de 255 caracteres.
     submit_idea_thankyou: Obrigado! Sua ideia foi adicionada. Por favor, adicione mais algumas.

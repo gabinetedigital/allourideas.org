@@ -27,5 +27,5 @@
                   .bar{:style => "width:#{choice.attributes['score']}%"}
                 .score
                   %strong= choice.attributes['score'].round.to_s
-      =link_to "Back to Vote", consultation_path(@consultation), :class => 'btn pull-right'
+      =link_to "Voltar para votação", consultation_path(@consultation), :class => 'btn pull-right'
 
