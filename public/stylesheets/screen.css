@@ -156,17 +156,31 @@ table {
   padding: 0px 15px 2px 0px;
   width: 545px; }
 
-.vote-question {
-  text-align: center;
-  padding: 15px 15px;
-  background-color: white;
-  color: #333333;
+
+.balao {
+  border: 2px solid #5c5c5b;
+  background-color: #FFF;
+  height: 145px;
   border-radius: 7px;
   -webkit-border-radius: 7px;
-  -moz-border-radius: 7px; }
+  -moz-border-radius: 7px;
+}
+
+.vote-question {
+  text-align: center;
+  background: url("/images/balao.png") no-repeat scroll 700px 134px transparent;
+  padding: 2px 15px;
+  text-transform: uppercase;
+  text-align: left;
+  color: #374A1E;
+  font-size: 26pt;
+  height: 200px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px; }
 
 .votebox {
-  margin-top: 20px;
+  margin-top: 30px;
   background-color: #f2f2f2; }
 
 .skip {
