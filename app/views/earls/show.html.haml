@@ -17,10 +17,8 @@
     -session[:welcome_msg] = nil
   .row
     .span10.offset1
-      %h2.vote-question= @question.consultation.name
-  / .row
-  /   .span6.offset5
-  /     %p="Categoria:"+@question
+      %div.balao
+        %h2.vote-question= @question.consultation.name
   .row.votebox
     .span5.offset1
       = render(:partial => 'questions/idea', :locals => {:data => @left_choice_text, :side => "leftside", :choice_id => @left_choice_id})
