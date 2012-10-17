@@ -139,8 +139,29 @@
       }
     }
 
+    bixcoito = $.cookie('votei');
+    if(bixcoito) {
+        console.log(bixcoito);
+    }
+    else {
+        console.log("Olá, você ainda não votou!");
+    }
+
+    if(bixcoito == 20) {
+        $('#votou').modal('show');
+    }
+
+
     $('.votebox').on('click', '.vote-table-div', function(event){
       event.preventDefault();
+
+
+      bixcoito = $.cookie('votei');
+      if(!bixcoito || isNaN(bixcoito) ) {
+          bixcoito = 0;
+      }
+
+      $.cookie('votei', parseInt(bixcoito) + 1);
 
       var winningLink = $(event.currentTarget);
       // return early if disabled or not btn-primary
