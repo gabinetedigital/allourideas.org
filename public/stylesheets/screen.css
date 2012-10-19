@@ -548,3 +548,160 @@ table.tablesorter thead tr .headerSortDown {
 
 .data-vis-header {
   padding-left: 15px; }
+
+
+.pri, .pq, .pro, .como{
+    overflow: hidden;
+    text-indent: 1000px;
+    background: url(/images/home.png) no-repeat;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+}
+
+.conteudo h5 {
+    font-size: 20pt;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btns {
+    margin-bottom: 20px;
+    overflow: auto;
+}
+
+.thumbnail {
+    border: 0;
+    padding: 10px 10px 10px 10px;
+    box-shadow: none;
+}
+
+.pwhat {
+    color: #FFF;
+    padding: 20px;
+}
+
+.gov {
+    cursor: pointer;
+    height: 120px;
+    position: relative;
+}
+
+.gov h4 {
+    font-size: 16pt;
+    font-weight: 400;
+    text-align: right;
+    line-height: 28px;
+    margin-top: 0;
+    color: #FFF;
+    padding-left: 122px;
+}
+
+
+.prioridade,  #pri {
+    background-color: #008fd8;
+}
+
+.pri {
+    background-position: -41px -335px;
+}
+
+.porque,  #pq {
+    background-color: #d8001d;
+}
+
+.pq {
+    background-position: -174px -325px;
+}
+
+.processo,  #pro {
+
+    background-color: #007160;
+    overflow: auto;
+}
+
+.pro {
+    background-position: -243px -327px;
+}
+
+.comofunciona,  #como {
+
+    background-color: #008fd8;
+}
+
+.como {
+    background-position: -110px -327px;
+}
+
+.conteudo h5 {
+    font-size: 17pt;
+    margin-bottom: 10px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.sans h2 {
+    font-size: 29px;
+}
+
+.conteudo p {
+    font-size: 11pt;
+    margin-bottom: 10px;
+}
+
+.conteudo {
+    margin-bottom: 20px;
+}
+
+ #pro .steps li {
+    list-style: none outside none;
+    text-align: center;
+    float: left;
+}
+
+ #pro .steps {
+    margin-top: 10px;
+}
+
+ #pro .steps li a {
+    color: #FFF;
+    text-align: center;
+    border: 3px solid #FFFFFF;
+    display: inline-block;
+    font-size: 14pt;
+    height: 20px;
+    margin-left: 10px;
+    padding: 5px;
+    width: 20px;
+    font-weight: bold;
+    border-radius: 30px;
+    line-height: 20px;
+}
+
+ #pro .steps li a:hover,  #pro .steps li a.active {
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+    border: 3px solid #000;
+    display: inline-block;
+    font-size: 14pt;
+    height: 20px;
+    margin-left: 10px;
+    padding: 5px;
+    width: 20px;
+    font-weight: bold;
+    border-radius: 30px;
+}
+
+.step2, .step3, .step4 {
+    display: none;
+}
+
+.pull-right {
+    float: right;
+}
+
+.sans {
+    font-family: 'Open Sans', sans-serif;
+}
