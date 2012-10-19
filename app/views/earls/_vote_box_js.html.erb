@@ -6,8 +6,11 @@
   if(parent._verifica_pode_adicionar_idea){
     pode_adicionar_nova_idea = parent._verifica_pode_adicionar_idea();
   }else{
-    //Se nao tem o method no parent, teoricamente esth fora do GD.
-    $(".add-idea-row").remove();
+    if (window.name == ""){
+      $(".add-idea-row").remove();
+    //}else{
+      //It is in facebook iframe.
+    }
   };
   _enviar_contrib_automatica = function(){
     //Chamda do click no botão enviar de novas ideias para enviar automaticamente qdo um
