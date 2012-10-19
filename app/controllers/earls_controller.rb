@@ -173,6 +173,9 @@ class EarlsController < ApplicationController
     else
       redirect_to('/') and return
     end
+    if params.has_key?(:facebook)
+      render(:template => 'earls/facebook') && return
+    end
   end
 
   # Perhaps this function should be moved somewhere else?
