@@ -18,7 +18,7 @@ class EarlsController < ApplicationController
       if params[:locale].nil? && @earl.default_lang != I18n.default_locale.to_s
 	      I18n.locale = @earl.default_lang
 
-	      redirect_to :action => :show, :controller => :earls, :id => @earl.name and return
+	      redirect_to :action => :show, :controller => :earls, :id => @earl.name, :facebook => params[:facebook] and return
       end
 
       begin
@@ -173,8 +173,12 @@ class EarlsController < ApplicationController
     else
       redirect_to('/') and return
     end
+    logger.info("======================================= FACEBOOK VERIFY")
     if params.has_key?(:facebook)
-      render(:template => 'earls/facebook') && return
+      logger.info("================ Dentro do FACEBOOK !")
+      render(:template => 'earls/facebook', :facebook => 'true') && return
+    else
+      logger.info("================ Não é dentro do FACEBOOK !")
     end
   end
 

@@ -11,7 +11,10 @@ class ConsultationsController < ApplicationController
     consultation = Consultation.find(params[:id])
     random_earl = consultation.earls.active.choice
     if random_earl
-      redirect_to consultation_earl_url(consultation, random_earl)
+      logger.info("############################################################ 3")
+      cons_url = consultation_earl_url(consultation, random_earl, :facebook => params[:facebook] )
+      logger.info("############################### 3.1 " + cons_url)
+      redirect_to cons_url
     else
       redirect_to root_url
     end

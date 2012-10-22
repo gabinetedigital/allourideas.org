@@ -3,13 +3,16 @@
   pode_adicionar_nova_idea = true;
   default_text_box = 'Inclua uma nova ideia aqui...'
 
+  isInFacebook = false;
   if(parent._verifica_pode_adicionar_idea){
     pode_adicionar_nova_idea = parent._verifica_pode_adicionar_idea();
   }else{
     if (window.name == ""){
       $(".add-idea-row").remove();
-    //}else{
+    }else{
       //It is in facebook iframe.
+      isInFacebook = true;
+      console.log('inFace');
     }
   };
   _enviar_contrib_automatica = function(){
@@ -100,6 +103,7 @@
       $('.tellmearea').html('');
       var data = {authenticity_token : AUTH_TOKEN, new_idea: new_idea};
       var url  = '/questions/' + question_id + '/add_idea.js?locale=<%= I18n.locale %>';
+      
       $.post(url, data, function(data){
 
         //Chama o callback do GD para gravar a con tribuição
@@ -138,7 +142,12 @@
     // sliding out the old idea vote buttons
     function loadNewPrompts(data) {
       if (data["redirect"]) {
-        window.location.replace(data["redirect"]);
+        urlappend = "";
+        if( isInFacebook ){
+          console.log('reloading in facebook...');
+          urlappend = '&facebook=true';
+        }
+        window.location.replace(data["redirect"]+urlappend);
       }
     }
 
@@ -191,9 +200,14 @@
       var appearance_lookup = $('#appearance_lookup').val()
       $('.tellmearea').html('');
 
+      urlappend = ""
+      if( isInFacebook ){
+        console.log('voting in facebook...');
+        urlappend = '&facebook=true';
+      }
       $.ajax({
         type: "post",
-        url: '/questions/' + question_id + '/prompts/' + prompt_id + '/vote.js' + '?locale=' + the_locale,
+        url: '/questions/' + question_id + '/prompts/' + prompt_id + '/vote.js' + '?locale=' + the_locale + urlappend,
         dataType: "json",
         timeout: 10000,
         data: {
