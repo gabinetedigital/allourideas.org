@@ -157,7 +157,7 @@ form#new_question_form{
   
   display: table-cell;  // Allows us to use vertical-align to centre the text
   vertical-align: middle;
-  min-height: 8em;  // This should be the maximun height (number of lines) 140 chars will wrap to in our sizes
+  /*min-height: 8em;  // This should be the maximun height (number of lines) 140 chars will wrap to in our sizes*/
   width:100%;
   
   @media (max-width: 480px) {
@@ -298,4 +298,23 @@ form#new_question_form{
     padding-right: 1em;
   }
 
+}
+
+/* CUSTOMIZAÇÕES GABINETE DIGITAL */
+.choice-text{
+  height:180px;
+  background-color: #fff;
+  @include border-radius (5px);
+  padding: 5px;
+  border: 2px solid #ccc;
+  font-size: 13pt;
+  text-align: center;
+}
+.choice-text p{
+  height:130px;
+}
+.info-choice{
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
 }

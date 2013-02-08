@@ -1,2 +1,10 @@
-%button.btn.btn-vote.btn-vote-idea.btn-primary{:id => side, :class => side, :"data-question_id" => @question.id, :"data-side" => side, :"data-choice_id" => choice_id, :"data-question_slug" => @question.slug, :"data-choice_url" => question_choice_path(@question.slug, choice_id)}
-  = h(data)
+%div.choice-text
+  %p
+    = h(data)
+  %button.btn.btn-vote.btn-vote-idea.btn-primary{:id => side, :class => side, :"data-question_id" => @question.id, :"data-side" => side, :"data-choice_id" => choice_id, :"data-question_slug" => @question.slug, :"data-choice_url" => question_choice_path(@question.slug, choice_id)}
+    ="Escolher esta opção"
+%div.info-choice
+  -if @left_choice_creator_id == 206
+    %p.origem= "Proposta do Plano de Ação de Combate a Violência no Trânsito"
+  -else
+    %p.origem= "Proposta enviada pela população"

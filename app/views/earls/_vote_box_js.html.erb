@@ -85,6 +85,10 @@
     }, "json");
   });
 
+    bixcoito = $.cookie('votei');
+    if(bixcoito == 20) {
+        $('#votou').modal('show');
+    }
 
     // creates new idea vote buttons and slide them in, while
     // sliding out the old idea vote buttons
@@ -96,6 +100,13 @@
 
     $('.votebox').on('click', '.btn-vote-idea', function(event){
       event.preventDefault();
+
+      bixcoito = $.cookie('votei');
+      if(!bixcoito || isNaN(bixcoito) ) {
+          bixcoito = 0;
+      }
+
+      $.cookie('votei', parseInt(bixcoito) + 1);
 
       var winningLink = $(event.currentTarget);
       // return early if disabled or not btn-primary
