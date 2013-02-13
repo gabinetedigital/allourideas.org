@@ -239,3 +239,10 @@
         loadNewPrompts(data);
       }, "json");
     });
+
+    // Stop the context menu With jQuery
+    $(document).on({
+        "contextmenu": function(e) {
+            e.preventDefault();
+        }
+    });

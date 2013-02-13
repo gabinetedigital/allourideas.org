@@ -5,6 +5,7 @@
     .span10.offset1
       .results-table-header
         %h3= @consultation.name
+      =link_to "Voltar para votação", consultation_path(@consultation, :facebook => params[:facebook]), :class => 'btn span5 offset2'
       %table.table.table-striped.ideas-table
         %thead
           %tr
@@ -27,4 +28,5 @@
                   .bar{:style => "width:#{choice.attributes['score']}%"}
                 .score
                   %strong= choice.attributes['score'].round.to_s
+    =link_to "Voltar para votação", consultation_path(@consultation, :facebook => params[:facebook]), :class => 'btn span6 offset3'
 
