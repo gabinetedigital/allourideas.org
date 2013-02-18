@@ -9,4 +9,24 @@ class UsersController < Clearance::UsersController
       render :new
     end
   end
+
+  def visit
+    puts('=======================================================================')
+    puts(params[:email])
+    puts(params[:callback])
+    puts('=======================================================================')
+  	@user = User.find_or_create_by_email(:email => params[:email],
+                                     :password => 'password',
+                                     :password_confirmation => 'password')
+    if @user
+      sign_in(@user)
+    end
+    redirect_to params[:callback] || root_url
+
+
+    # @conteudo = "{'login_status':1}"
+  	# respond_to do |format|
+	  #   format.json { render :json => @conteudo }
+	  # end
+  end
 end
