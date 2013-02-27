@@ -10,10 +10,14 @@ class UsersController < Clearance::UsersController
     end
   end
 
+  def unvisit
+    sign_out()
+    redirect_to params[:callback] || root_url
+  end
+
   def visit
     puts('=======================================================================')
     puts(params[:email])
-    puts(params[:callback])
     puts('=======================================================================')
   	@user = User.find_or_create_by_email(:email => params[:email],
                                      :password => 'password',
